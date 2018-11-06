@@ -22,7 +22,7 @@ class UserControllerActor(userService: UserService) extends Actor {
 
   override def receive: Receive = {
 
-    case GetAllUsers => userService.users pipeTo sender
+    case GetAllUsers => userService.users() pipeTo sender
     case SearchUser(id) => userService.searchUser(id) pipeTo sender
     case CreateUser(user) => userService.insertUser(user) pipeTo sender
     case UpdateUser(user) => userService.updateUser(user) pipeTo sender
