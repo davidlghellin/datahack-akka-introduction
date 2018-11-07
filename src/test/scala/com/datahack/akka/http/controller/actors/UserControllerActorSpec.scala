@@ -51,5 +51,13 @@ class UserControllerActorSpec {
     }
 
   }
+<<<<<<< HEAD
   */
 }
+=======
+
+  override protected def afterAll(): Unit = {
+    Await.result(SqlTestUtils.dropDatabase(schemaName), 5 seconds)
+  }
+}
+>>>>>>> 74ed538829a1d42bc9069aceff3736019e891ce6
