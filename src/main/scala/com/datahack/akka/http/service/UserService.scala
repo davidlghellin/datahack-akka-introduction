@@ -22,17 +22,6 @@ object UserService {
 
 class UserService(userDao: UserDao) {
 
-<<<<<<< HEAD
-  def users()(implicit executionContext: ExecutionContext): Future[UserServiceResponse] = ???
-
-  def searchUser(id: Long)(implicit executionContext: ExecutionContext): Future[UserServiceResponse] = ???
-
-  def insertUser(user: User)(implicit executionContext: ExecutionContext): Future[UserServiceResponse] =  ???
-
-  def updateUser(user: User)(implicit executionContext: ExecutionContext): Future[UserServiceResponse] =  ???
-
-  def deleteUser(id: Long)(implicit executionContext: ExecutionContext): Future[UserServiceResponse] =  ???
-=======
   def users()(implicit executionContext: ExecutionContext): Future[UserServiceResponse] = {
     userDao.getAll.map(AllUsers)
   }
@@ -70,5 +59,4 @@ class UserService(userDao: UserDao) {
       case _: NoSuchElementException => UserNotFound
     }
   }
->>>>>>> 74ed538829a1d42bc9069aceff3736019e891ce6
 }

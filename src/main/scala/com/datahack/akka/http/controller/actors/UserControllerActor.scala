@@ -16,19 +16,18 @@ object UserControllerActor {
   case class DeleteUser(id: Long)
 }
 
-class UserControllerActor extends Actor {
+class UserControllerActor(userService: UserService) extends Actor {
 
   implicit val executionContext: ExecutionContextExecutor = context.dispatcher
 
   override def receive: Receive = {
 
-<<<<<<< HEAD
-=======
+
     case GetAllUsers => userService.users() pipeTo sender
     case SearchUser(id) => userService.searchUser(id) pipeTo sender
     case CreateUser(user) => userService.insertUser(user) pipeTo sender
     case UpdateUser(user) => userService.updateUser(user) pipeTo sender
     case DeleteUser(id) => userService.deleteUser(id) pipeTo sender
->>>>>>> 74ed538829a1d42bc9069aceff3736019e891ce6
+
   }
 }

@@ -13,22 +13,15 @@ import com.datahack.akka.http.service.UserService._
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
 
-<<<<<<< HEAD
-class UserController{
-=======
+
 class UserController(userActor: ActorRef)
                     (implicit executionContext: ExecutionContext) extends Directives with JsonSupport {
->>>>>>> 74ed538829a1d42bc9069aceff3736019e891ce6
+
 
   implicit val timeout: Timeout = Timeout(60 seconds)
 
-  val routes: Route = ???
+  val routes: Route = getAllUsers ~ getUser ~ insertUser ~ updateUser ~ deleteUser
 
-<<<<<<< HEAD
-  def getAllUsers: server.Route = ???
-
-  def getUser: server.Route = ???
-=======
   def getAllUsers: server.Route =
     path("users") {
       get {
@@ -50,15 +43,9 @@ class UserController(userActor: ActorRef)
       }
 
     }
->>>>>>> 74ed538829a1d42bc9069aceff3736019e891ce6
 
   def insertUser: server.Route = ???
 
-<<<<<<< HEAD
-  def updateUser: server.Route = ???
-
-  def deleteUser: server.Route = ???
-=======
   def updateUser: server.Route =
     path("users" / LongNumber) { userId =>
       put {
@@ -85,7 +72,6 @@ class UserController(userActor: ActorRef)
 
     }
   }
->>>>>>> 74ed538829a1d42bc9069aceff3736019e891ce6
 
 }
 
